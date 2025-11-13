@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cell</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/fabric@6.4.3/dist/index.js"></script>
+    <script>
+        const cellWidth = 10
+        const cellHeight = 10
+        const canvas = new fabric.Canvas('canvas')
+        const cellMap = []
+
+        function initWorld(initData) {
+            initData.forEach(init => {
+                // console.log('init val', init)
+                let rect = new fabric.Rect({
+                    top: init.y,
+                    left: init.x,
+                    width: cellWidth,
+                    height: cellHeight,
+                    fill: 'red',
+                    selectable: false,
+                })
+
+                cellMap[init.id] = rect
+                canvas.add(rect)
+            })
+        }
+
+        function move(left, top, cell) {
+            cell.animate(
+                {
+                    left: left,
+                    top: top,
+                },
+                {
+                    duration: 1000,
+                    onChange: () => canvas.requestRenderAll(),
+                    easing: fabric.util.ease['easeInQuad'],
+                }
+            )
+        }
+
+        // withCredentials=true: pass the cross-domain cookies to server-side
+        // const source = new EventSource('http://127.0.0.1:9502/', {withCredentials: true});
+        const source = new EventSource('http://127.0.0.1:9502/')
+        source.addEventListener('cells', function (event) {
+            let data = JSON.parse(event.data)
+            // console.log(data)
+            if (data.hasOwnProperty('init')) {
+                // console.log('init', data.init)
+                initWorld(data.init)
+            } else {
+                // console.log(data)
+                let cell = cellMap[data.id]
+                move(data.x, data.y, cell)
+            }
+        }, false);
+
+    </script>
+</body>
+</html>

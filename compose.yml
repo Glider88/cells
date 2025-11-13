@@ -1,0 +1,29 @@
+services:
+  php:
+    container_name: cells-php
+    build: .docker/php
+    image: cells/php
+    user: docker
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - .docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - .docker/php/custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+      - .:/usr/src/app
+    environment:
+        PHP_IDE_CONFIG: "serverName=docker-cells-php"
+    ports:
+        - "9501:9501"
+        - "9502:9502"
+    networks: [app]
+  composer:
+      container_name: cells-composer
+      image: composer
+      user: 1000:1000
+      volumes:
+          - .:/app
+      command: ['install', '--ignore-platform-reqs']
+
+networks:
+    app:
+        driver: bridge

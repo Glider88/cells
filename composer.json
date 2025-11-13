@@ -1,0 +1,40 @@
+{
+  "name": "glider88/cells",
+  "version": "0.0.1",
+  "description": "World of Cells",
+  "keywords": ["cells"],
+  "type": "project",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sakharov Pavel",
+      "email": "s.p.alekseevich@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "ext-swoole": "*",
+    "ext-pcntl": "*",
+    "glider88/php-dumper": "dev-main",
+    "amphp/amp": "3.x-dev",
+    "amphp/http-server": "3.x-dev",
+    "revolt/event-loop": "^1.0@dev"
+  },
+  "require-dev": {
+      "roave/security-advisories": "dev-latest"
+      ,
+      "phpunit/phpunit": "^12.0",
+    "swoole/ide-helper": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cells\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Cells\\": "tests/"
+    }
+  }
+}
