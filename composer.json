@@ -19,7 +19,8 @@
     "glider88/php-dumper": "dev-main",
     "amphp/amp": "3.x-dev",
     "amphp/http-server": "3.x-dev",
-    "revolt/event-loop": "^1.0@dev"
+    "revolt/event-loop": "^1.0@dev",
+    "amphp/log": "2.x-dev"
   },
   "require-dev": {
       "roave/security-advisories": "dev-latest"

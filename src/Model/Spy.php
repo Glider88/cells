@@ -2,7 +2,7 @@
 
 namespace Cells\Model;
 
-use Cells\Runtime\WritableStreamResponseInterface;
+use Cells\Runtime\Response\WritableStreamResponseInterface;
 
 readonly class Spy
 {

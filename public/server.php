@@ -6,6 +6,6 @@ use Cells\Runtime\SyncPhpServer;
 
 require  __DIR__ . '/../vendor/autoload.php';
 
-SyncPhpServer::run();
-//SwooleServer::run();
+//SyncPhpServer::run();
+SwooleServer::run();
 //AmpServer::run();

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cmd="ps aux | grep '[p]ublic/server.php' | awk '{print \$1}' | xargs kill -9"
+docker compose exec --user docker php sh -c "$cmd"

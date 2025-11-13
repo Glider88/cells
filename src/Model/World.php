@@ -3,7 +3,7 @@
 namespace Cells\Model;
 
 use Cells\Helper\Arr;
-use Cells\Runtime\WritableStreamResponseInterface;
+use Cells\Runtime\Response\WritableStreamResponseInterface;
 
 readonly class World
 {

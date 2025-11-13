@@ -3,10 +3,10 @@
 namespace Cells\Runtime;
 
 use Cells\Model\Cell;
-use Cells\Model\Point;
 use Cells\Model\Spy;
 use Cells\Model\State;
 use Cells\Model\World;
+use Cells\Runtime\Response\SwooleSseResponse;
 use Swoole\Coroutine;
 use Swoole\Http\Request;
 use Swoole\Http\Response;

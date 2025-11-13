@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Cells\Runtime;
+namespace Cells\Runtime\Response;
 
 use Swoole\Http\Response;
 
