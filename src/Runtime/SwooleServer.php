@@ -25,7 +25,7 @@ readonly class SwooleServer
             'max_request'        => 100000,
             'buffer_output_size' => 4 * 1024 * 1024, // 4MB
             'log_level'          => SWOOLE_LOG_WARNING,
-            'log_file'           => __DIR__ . '/../../logs/swoole.log',
+//            'log_file'           => __DIR__ . '/../../logs/swoole.log',
         ]);
 
 
