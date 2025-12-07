@@ -1,38 +1,43 @@
 # World of Cells
 
+Just playing with asynchronous php, comparing Swoole and Amphp.
 Points move randomly within the boundaries of their world.
 Data comes from SSE.
-Different backends: swoole, amphp and simple php sync.
 
 ![](/assets/screenshot.png)
 
-## Start docker
-
-First time:
+### Start docker:
 ```shell
-bin/reup
+bin/reup  # first time
+```
+```shell
+bin/up  # next times
 ```
 
-Next times:
-```shell
-bin/up
-```
-
-## Start app
+### Start app:
 
 Interface:
-
 ```shell
 bin/php -S 0.0.0.0:9501 -t public/.
 ```
 
-Backend Swoole and Amphp (edit public/server.php for switching):
-```shell
-bin/php -dxdebug.mode=off public/server.php
-```
+One of the available backends:
 
-Sync php:
-```shell
-bin/php -S 0.0.0.0:9502 public/server.php
-bin/kill
-```
+- Swoole:
+    ```shell
+    bin/php -dxdebug.mode=off public/swoole_server.php
+    ```
+
+- Amphp:
+    ```shell
+    bin/php -dxdebug.mode=off public/amphp_server.php
+    ```
+
+- Sync php:
+    ```shell
+    bin/php -S 0.0.0.0:9502 public/php_sync_server.php
+    ```
+    if php server hangs:
+    ```shell
+    bin/kill
+    ```
