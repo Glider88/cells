@@ -1,7 +1,11 @@
 # World of Cells
 
 Just playing with asynchronous php, comparing Swoole and Amphp.
-Points move randomly within the boundaries of their world.
+
+Each point is processed by a separate coroutine.
+The point randomly chooses where to move, then sleeps for a random amount of time.
+On average, the point moves once per second.
+
 Data comes from SSE.
 
 ![](/assets/screenshot.png)
