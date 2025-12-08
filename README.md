@@ -12,7 +12,7 @@ Data comes from SSE.
 
 ### Start docker:
 ```shell
-bin/reup  # first time
+bin/re  # first time
 ```
 ```shell
 bin/up  # next times
